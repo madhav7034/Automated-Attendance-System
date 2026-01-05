@@ -31,7 +31,8 @@ SQLite – Lightweight database
 
 Computer Vision & AI
 
-OpenCV – Camera handling & image processing
+OpenCV – Camera handling & image processing  (pip install opencv-python)
+
 
 InsightFace
 
