@@ -1,0 +1,236 @@
+/* ================= BASE ================= */
+body {
+    margin: 0;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+.app-container {
+    display: flex;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 60px;                 /* 🔧 tighter collapsed width */
+    background: #020617;
+    overflow: hidden;            /* 🔧 CRITICAL: no bleed */
+    transition: width 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar:hover {
+    width: 220px;
+}
+
+/* ---------- Header ---------- */
+.sidebar-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-bottom: 1px solid #1e293b;
+    color: #e5e7eb;
+}
+
+.logo-icon {
+    font-size: 20px;
+}
+
+.logo-text {
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .logo-text {
+    opacity: 1;
+}
+
+/* ---------- Navigation ---------- */
+.sidebar-nav {
+    padding-top: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 18px;
+    color: #cbd5e1;
+    text-decoration: none;
+    gap: 16px;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Icon container */
+.nav-item .icon {
+    width: 24px;                 /* 🔧 fixed icon width */
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Text */
+.nav-item .text {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Reveal text only on hover */
+.sidebar:hover .nav-item .text {
+    opacity: 1;
+}
+
+/* Hover state */
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+.nav-item.logout {
+    color: #f87171;
+}
+
+/* ================= MAIN ================= */
+.main-content {
+    margin-left: 60px;
+    width: 100%;
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 220px;
+}
+
+/* ================= TOPBAR ================= */
+.topbar {
+    height: 64px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+/* ================= CONTENT ================= */
+.page-content {
+    padding: 32px;
+}
+
+/* ================= DASHBOARD ================= */
+.metric-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.metric-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+}
+
+.metric-content span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.metric-content h2,
+.metric-content h6 {
+    margin: 0;
+}
+
+.bg-blue {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.bg-green {
+    background: linear-gradient(135deg, #16a34a, #166534);
+}
+
+.bg-purple {
+    background: linear-gradient(135deg, #7c3aed, #4c1d95);
+}
+
+/* ================= TABLES ================= */
+.table th {
+    background: #020617;
+    color: white;
+}
+
+/* ================= BADGES ================= */
+.badge-present {
+    background-color: #16a34a;
+}
+
+.badge-absent {
+    background-color: #dc2626;
+}
+
+/* ================= TAKE ATTENDANCE CAMERA ================= */
+
+.attendance-page {
+    display: flex;
+    justify-content: center;
+    padding: 32px;
+}
+
+.attendance-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid #e5e7eb;
+}
+
+.attendance-card h2 {
+    margin-bottom: 6px;
+}
+
+.attendance-card .subtitle {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+.attendance-card select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+/* Camera container — prevents scrolling */
+.camera-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: black;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+/* Actual video feed */
+.camera-feed {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

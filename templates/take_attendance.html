@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card p-4">
+    <h3>Live Attendance</h3>
+    <p class="text-muted">
+        Selecting a course will open the camera in a separate window.
+    </p>
+
+    <form method="post" action="/start-attendance">
+        <select class="form-select mb-3" name="course_id" required>
+            <option value="">Select Course</option>
+            {% for course in courses %}
+                <option value="{{ course.id }}">{{ course.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button class="btn btn-primary w-100">
+            Start Attendance (Open Camera)
+        </button>
+    </form>
+</div>
+
+{% endblock %}

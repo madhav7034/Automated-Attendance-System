@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row g-4">
+    <!-- ================= LEFT : FORM ================= -->
+    <div class="col-md-6">
+        <div class="card p-4 shadow-sm">
+            <h4 class="mb-3">Student Enrollment</h4>
+
+            <form method="POST" onsubmit="captureImage()">
+                <!-- Student Name -->
+                <input
+                    class="form-control mb-3"
+                    name="name"
+                    placeholder="Student Name"
+                    required
+                >
+
+                <!-- Roll Number -->
+                <input
+                    class="form-control mb-3"
+                    name="roll_no"
+                    placeholder="Roll Number"
+                    required
+                >
+
+                <!-- ✅ FIXED: course_id -->
+                <select
+                    class="form-select mb-3"
+                    name="course_id"
+                    required
+                >
+                    <option value="">Select Course</option>
+                    {% for course in courses %}
+                        <option value="{{ course.id }}">
+                            {{ course.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <!-- Captured Image -->
+                <input type="hidden" name="image" id="imageData">
+
+                <button class="btn btn-primary w-100">
+                    Capture & Enroll
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= RIGHT : CAMERA ================= -->
+    <div class="col-md-6">
+        <div class="card p-4 text-center shadow-sm">
+            <h4 class="mb-3">Camera Preview</h4>
+
+            <video
+                id="video"
+                class="w-100 rounded"
+                autoplay
+            ></video>
+
+            <canvas
+                id="canvas"
+                width="400"
+                height="300"
+                class="d-none"
+            ></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/camera.js"></script>
+{% endblock %}

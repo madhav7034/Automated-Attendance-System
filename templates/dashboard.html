@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="mb-4">
+    <h1 class="fw-semibold">Dashboard</h1>
+    <p class="text-muted">
+        Face Recognition Based Attendance Management System
+    </p>
+</div>
+
+<div class="row g-4">
+
+    <!-- Total Courses -->
+    <div class="col-md-4">
+        <div class="metric-card">
+            <div class="metric-icon bg-blue">
+                <i class="bi bi-journal-bookmark"></i>
+            </div>
+            <div class="metric-content">
+                <span>Total Courses</span>
+                <h2>{{ courses_count }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Students -->
+    <div class="col-md-4">
+        <div class="metric-card">
+            <div class="metric-icon bg-green">
+                <i class="bi bi-people"></i>
+            </div>
+            <div class="metric-content">
+                <span>Total Students</span>
+                <h2>{{ students_count }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mode -->
+    <div class="col-md-4">
+        <div class="metric-card">
+            <div class="metric-icon bg-purple">
+                <i class="bi bi-camera-video"></i>
+            </div>
+            <div class="metric-content">
+                <span>Attendance Mode</span>
+                <h6 class="fw-semibold mt-1">Face Recognition</h6>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card mt-4 p-4">
+    <h5 class="fw-semibold mb-3">System Workflow</h5>
+    <ul class="workflow-list">
+        <li>Enroll students with facial biometric data</li>
+        <li>Capture live images to mark attendance</li>
+        <li>Automatically record date & time</li>
+        <li>Generate and export attendance reports</li>
+    </ul>
+</div>
+
+{% endblock %}
